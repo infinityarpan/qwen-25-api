@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  qwen-25-service:
+    image: python:3.11.9  # Use the official Python image
+    container_name: qwen_25_service_container
+    working_dir: /app  # Set the working directory
+    volumes:
+      - .:/app  # Mount your local project folder inside the container
+    ports:
+      - "8000:8000"  # Map container port to host
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126 &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4"
+    restart: always  # Ensures the container restarts if it crashes
