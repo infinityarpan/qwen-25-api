@@ -1,5 +1,8 @@
-venv/
-.env
-__pycache__
-.ipynb_checkpoints
-scripts/.ipynb_checkpoints
+# Ignore virtual environments and environment files  
+venv/  
+.env  
+
+# Ignore Python cache and Jupyter checkpoints  
+__pycache__/  
+.ipynb_checkpoints/  
+scripts/.ipynb_checkpoints  
