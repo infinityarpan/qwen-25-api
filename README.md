@@ -62,7 +62,7 @@ qwen-25-api/
 1.  **Clone the Repository:**
 
     ```bash
-    git clone <your_repository_url>
+    git clone https://github.com/infinityarpan/qwen-25-api.git
     cd qwen-25-api
     ```
 

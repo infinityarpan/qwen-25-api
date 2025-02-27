@@ -5,8 +5,9 @@ from app.logging import logger
 from app.config import settings
 
 def generate_response(model, tokenizer, model_name, request):
+
     """Handles text generation logic."""
-    start_time = time.time()  # ✅ Moved this inside the function
+    start_time = time.time()  # Moved this inside the function
 
     try:
         messages = [
@@ -23,7 +24,7 @@ def generate_response(model, tokenizer, model_name, request):
             raise HTTPException(status_code=400, detail="Max context length exceeded")
 
         # Generate response
-        with torch.no_grad():  # ✅ Disable gradients for inference efficiency
+        with torch.no_grad():  # Disable gradients for inference efficiency
             generated_ids = model.generate(
                 **model_inputs,
                 max_new_tokens=settings.MAX_NEW_TOKENS,

@@ -12,7 +12,8 @@ class Settings(BaseSettings):
     # CORS Configuration
     ALLOWED_ORIGINS: List[str] = ["*"]  # Update with frontend domain in production
     ALLOWED_METHODS: List[str] = ["POST"]  # Only allow POST requests
-    ALLOWED_HEADERS: List[str] = ["*"]
+    ALLOWED_HEADERS: List[str] = ["*"]  # Allow all headers
+    ALLOWED_CREDENTIALS: bool = False  # No credentials required
 
     # Model Configuration
     MODEL_NAME: str = "Qwen-2.5-0.5B-Instruct"
@@ -26,7 +27,7 @@ class Settings(BaseSettings):
     TOP_K: int = 50  # Default value; override as needed
     TOP_P: float = 0.9  # Default nucleus sampling probability
     TEMPERATURE: float = 0.7  # Default temperature for randomness
-    MAX_CONTEXT_LENGTH: int = 32768  # Model's max context size
+    MAX_CONTEXT_LENGTH: int = 32768  # Model's max context length
 
     # Logging Settings
     LOG_LEVEL: str = "INFO"

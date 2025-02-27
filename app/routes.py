@@ -20,9 +20,9 @@ class RequestBody(BaseModel):
 # Model Dependency
 def get_model():
     model_client = Model()
-    return model_client.load_model(), model_client.load_tokenizer(), model_client.model_name  # ✅ Added model_name
+    return model_client.model, model_client.tokenizer, model_client.model_name
 
 @router.post("/generate")
 async def generate_text(request: RequestBody, model_data: Any = Depends(get_model)):
     model, tokenizer, model_name = model_data
-    return generate_response(model, tokenizer, model_name, request)  # ✅ Removed start_time from here
+    return generate_response(model, tokenizer, model_name, request)
